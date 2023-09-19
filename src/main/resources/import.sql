@@ -1,0 +1,1 @@
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Videojuegos', 'XBOX', 10, NOW());
