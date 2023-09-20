@@ -1,1 +1,10 @@
-INSERT INTO productos (name, brand, stock, added_at) VALUES ('Videojuegos', 'XBOX', 10, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Consola de videojuegos', 'Xbox', 10, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Televisor 4K', 'Samsung', 5, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Smartphone', 'Apple', 20, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Laptop Gaming', 'Alienware', 7, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Audifonos Bluetooth', 'Sony', 15, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Camara Digital', 'Canon', 8, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Tablet', 'Huawei', 12, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Reloj Inteligente', 'Fitbit', 14, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Teclado Mecanico', 'Logitech', 9, NOW());
+INSERT INTO productos (name, brand, stock, added_at) VALUES ('Mouse Inalambrico', 'HP', 25, NOW());

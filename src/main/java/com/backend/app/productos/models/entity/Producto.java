@@ -29,7 +29,7 @@ public class Producto implements Serializable {
 	
 	private String brand;
 	
-	private int stock;
+	private Integer stock;
 	
 	@Column(name = "added_at")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -59,11 +59,11 @@ public class Producto implements Serializable {
 		this.brand = brand;
 	}
 	
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 	
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 	
