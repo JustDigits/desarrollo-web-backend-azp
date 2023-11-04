@@ -14,6 +14,13 @@ public class Producto {
 	private Date addedAt;
 	
 	private Integer port;
+	
+	public Producto(Long id, String name, String brand, Integer stock) {
+		this.id = id;
+		this.name = name;
+		this.brand = brand;
+		this.stock = stock;
+	}
 
 	public Long getId() {
 		return id;
