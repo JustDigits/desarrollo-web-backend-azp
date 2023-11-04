@@ -3,8 +3,10 @@ package com.backend.app.productos.models.controllers;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,9 +26,15 @@ public class ProductosController {
 	@Autowired
 	private ProductosService service;
 	
+	@Value("${server.port}")
+	private Integer port;
+	
 	@GetMapping("/list")
 	public List<Producto> findAll() {
-		return service.findAll();
+		return service.findAll().stream().map(producto -> {
+			producto.setPort(port);
+			return producto;
+		}).collect(Collectors.toList());
 	}
 	
 	@GetMapping("/productos/{id}")

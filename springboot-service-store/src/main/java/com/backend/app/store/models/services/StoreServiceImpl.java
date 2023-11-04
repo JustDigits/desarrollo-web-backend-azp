@@ -21,7 +21,7 @@ public class StoreServiceImpl implements StoreService {
 	
 	@Override
 	public List<Store> findAll() {
-		List<Producto> productos = Arrays.asList(clientRest.getForObject("http://localhost:8002/list" , Producto[].class));
+		List<Producto> productos = Arrays.asList(clientRest.getForObject("http://localhost:8081/list" , Producto[].class));
 		
 		return productos.stream().map(p -> new Store(p, 5)).collect(Collectors.toList());
 	}
@@ -30,7 +30,7 @@ public class StoreServiceImpl implements StoreService {
 	public Store findById(Long id, Integer cantidad) {
 		Map<String, String> pathVariables = new HashMap<>();
 		pathVariables.put("id", id.toString());
-		Producto prod = clientRest.getForObject("http://localhost:8002/productos/{id}", Producto.class, pathVariables);
+		Producto prod = clientRest.getForObject("http://localhost:8081/productos/{id}", Producto.class, pathVariables);
 		return new Store(prod, cantidad);
 	}
 
