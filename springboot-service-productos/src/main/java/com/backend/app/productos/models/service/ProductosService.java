@@ -3,8 +3,6 @@ package com.backend.app.productos.models.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
-
 import com.backend.app.productos.models.entity.Producto;
 
 public interface ProductosService {
@@ -39,5 +37,7 @@ public interface ProductosService {
 	 * @param producto
 	 * @return
 	 */
-	public Producto save(Producto producto);
+	public Producto save(Producto instance);
+	
+	public boolean existsById(Long id);
 }

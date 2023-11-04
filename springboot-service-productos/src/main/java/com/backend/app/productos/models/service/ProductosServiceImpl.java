@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,13 +34,21 @@ public class ProductosServiceImpl implements ProductosService {
 	}
 	
 	@Override
+	@Transactional(readOnly = true)
 	public void deleteById(Long id) {
 		productosDao.deleteById(id);
 	}
 	
 	@Override
-	public Producto save(Producto producto) {
-	    return productosDao.save(producto);
+	@Transactional(readOnly = true)
+	public Producto save(Producto instance) {
+	    return productosDao.save(instance);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public boolean existsById(Long id) {
+		return productosDao.existsById(id);
 	}
 }
 
