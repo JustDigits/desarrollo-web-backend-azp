@@ -39,10 +39,12 @@ public class ProductosController {
 	
 	@GetMapping("/productos/{id}")
 	public Producto findById(@PathVariable Long id) {
-//	    boolean b1 = false;
-//	    if(!b1) {
-//	    	throw new RuntimeException("No se pudo obtener el detalle del producto");
-//	    }
+		
+		try {
+			Thread.sleep(2000L);
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 		Optional<Producto> optionalProducto = service.findById(id);
 	    if (!optionalProducto.isPresent()) {
