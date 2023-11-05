@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +25,9 @@ import com.backend.app.productos.models.service.ProductosService;
 public class ProductosController {
 	
 	@Autowired
+	private Environment env;
+	
+	@Autowired
 	private ProductosService service;
 	
 	@Value("${server.port}")
@@ -32,14 +36,14 @@ public class ProductosController {
 	@GetMapping("/list")
 	public List<Producto> findAll() {
 		return service.findAll().stream().map(producto -> {
-			producto.setPort(port);
+			producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 			return producto;
 		}).collect(Collectors.toList());
 	}
 	
 	@GetMapping("/productos/{id}")
 	public Producto findById(@PathVariable Long id) {
-		
+	
 		try {
 			Thread.sleep(2000L);
 		} catch(InterruptedException e) {
